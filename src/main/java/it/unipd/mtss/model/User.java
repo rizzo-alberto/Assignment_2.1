@@ -24,7 +24,7 @@ public class User {
             throw new IllegalArgumentException("Il cognome non può essere vuoto!");
         }
         if(birth == null){
-            throw new IllegalArgumentException("Bisogna specificare la data di nascia!");
+            throw new IllegalArgumentException("Bisogna specificare la data di nascita!");
         }
         if(birth.isAfter(LocalDate.now())){
             throw new IllegalArgumentException("La data di nascita non può essere nel futuro!");
