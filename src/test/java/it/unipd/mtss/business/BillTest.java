@@ -162,4 +162,16 @@ public class BillTest {
             assertEquals("Non è possibile avere un'ordinazione con più di 30 elementi!",e.getMessage());
         }
     }
+
+    @Test
+    public void orderPrice_CommissionLessThanTenTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Amazon Basic Mouse", 5.00));
+        assertEquals(7,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_CommissionMoreThanTenTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Amazon Basic Mouse Pro", 15.00));
+        assertEquals(15,bill.getOrderPrice(orderList,usr),1e-8);
+    }
 }

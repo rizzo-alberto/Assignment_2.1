@@ -100,6 +100,10 @@ public class BillImplementation implements Bill {
             tot-=(tot/100) * 10;
         }
 
+        if(tot<10){
+            tot+=2;
+        }
+
         return tot;
     }
 }
