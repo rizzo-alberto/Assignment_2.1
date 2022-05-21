@@ -15,8 +15,10 @@ public class BillImplementation implements Bill {
     public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
         double tot = 0.0;
         int numberOfProcessor = 0;
+        int numberOfMouse = 0;
 
         double priceProcMIN = Double.MAX_VALUE;
+        double priceMouseMIN = Double.MAX_VALUE;
 
 
         if(user == null) {
@@ -35,6 +37,7 @@ public class BillImplementation implements Bill {
             throw new BillException("La lista degli ordini non può essere vuota");
         }
 
+        //calcolo numero cpu, cpu + economica
         for (EItem itm : itemsOrdered){
             if (itm.getItemType() == EItem.itemEnum.Processor){
                 numberOfProcessor++;
@@ -43,13 +46,29 @@ public class BillImplementation implements Bill {
                 }
             }
         }
+        //calcolo numero mouse, mouse + economico
+        for (EItem itm : itemsOrdered){
+            if (itm.getItemType() == EItem.itemEnum.Mouse){
+                numberOfMouse++;
+                if(itm.getPrice()<priceMouseMIN){
+                    priceMouseMIN = itm.getPrice();
+                }
+            }
+        }
 
+        //calcolo totale base
         for (EItem itm : itemsOrdered) {
             tot+=itm.getPrice();
         }
 
+        //applico sconto processori, se necessario
         if(numberOfProcessor > 5){
             tot -= priceProcMIN/2;
+        }
+
+        //applico sconto mouse, se necessario
+        if(numberOfMouse > 10){
+            tot -= priceMouseMIN;
         }
 
         return tot;

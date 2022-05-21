@@ -70,7 +70,17 @@ public class BillTest {
     }
 
     @Test
-    public void orderPrice_MorethanFiveCPUDiscountTest() throws  BillException{
+    public void orderPrice_LessThanSixCPUDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 250.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 350.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 450.37));
+
+
+        assertEquals(1052.35,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_MoreThanFiveCPUDiscountTest() throws  BillException{
         orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 250.99));
         orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 350.99));
         orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 450.37));
@@ -79,5 +89,32 @@ public class BillTest {
         orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i9 Lake dragon", 500.99));
 
         assertEquals(1959.73,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_MoreThanTenMouseDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus Jotaro", 10.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Microsoft Giorno", 8.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "LogiTech LisaLisa", 8.37));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Trust Avdol", 12.80));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Microsoft Bucciarati", 11.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Razer Joseph", 99.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Razer Polnareff", 16.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus Go Go Zeppeli", 34.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus ZaWardo", 45.37));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Apple no", 5.80));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "LogiTech tekno", 6.99));
+
+
+        assertEquals(257.47,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_LessThanElevenMouseDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus Jotaro", 10.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Microsoft Giorno", 8.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "LogiTech LisaLisa", 8.37));
+
+        assertEquals(28.35,bill.getOrderPrice(orderList,usr),1e-8);
     }
 }
