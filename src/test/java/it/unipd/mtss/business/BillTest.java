@@ -149,4 +149,17 @@ public class BillTest {
         orderList.add(new EItem(EItem.itemEnum.Processor, "Intel core 15 i3", 800));
         assertEquals(800,bill.getOrderPrice(orderList,usr),1e-8);
     }
+
+    @Test
+    public void orderPrice_MaxTrentaElementiTest(){
+        for(int i=0;i<35;i++){
+            orderList.add(new EItem(EItem.itemEnum.Mouse, "Trust mePlease_black", 9.99));
+        }
+        try {
+            bill.getOrderPrice(orderList,usr);
+        }
+        catch(BillException e){
+            assertEquals("Non è possibile avere un'ordinazione con più di 30 elementi!",e.getMessage());
+        }
+    }
 }

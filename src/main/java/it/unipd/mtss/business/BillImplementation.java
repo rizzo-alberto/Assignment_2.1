@@ -22,6 +22,9 @@ public class BillImplementation implements Bill {
         double priceMouseMIN = Double.MAX_VALUE;
         double priceKeyboardMIN = Double.MAX_VALUE;
 
+        if(itemsOrdered.size()>30){
+            throw new BillException("Non è possibile avere un'ordinazione con più di 30 elementi!");
+        }
 
         if(user == null) {
             throw new BillException("Il cliente deve essere definito");
