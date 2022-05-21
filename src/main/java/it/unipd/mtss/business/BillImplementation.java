@@ -16,9 +16,11 @@ public class BillImplementation implements Bill {
         double tot = 0.0;
         int numberOfProcessor = 0;
         int numberOfMouse = 0;
+        int numberOfKeyboards = 0;
 
         double priceProcMIN = Double.MAX_VALUE;
         double priceMouseMIN = Double.MAX_VALUE;
+        double priceKeyboardMIN = Double.MAX_VALUE;
 
 
         if(user == null) {
@@ -56,6 +58,16 @@ public class BillImplementation implements Bill {
             }
         }
 
+        //calcolo numero tastiere, tastiera + economico
+        for (EItem itm : itemsOrdered){
+            if (itm.getItemType() == EItem.itemEnum.Keyboard){
+                numberOfKeyboards++;
+                if(itm.getPrice()<priceKeyboardMIN){
+                    priceKeyboardMIN = itm.getPrice();
+                }
+            }
+        }
+
         //calcolo totale base
         for (EItem itm : itemsOrdered) {
             tot+=itm.getPrice();
@@ -63,12 +75,21 @@ public class BillImplementation implements Bill {
 
         //applico sconto processori, se necessario
         if(numberOfProcessor > 5){
-            tot -= priceProcMIN/2;
+           tot -= priceProcMIN/2;
         }
 
         //applico sconto mouse, se necessario
         if(numberOfMouse > 10){
             tot -= priceMouseMIN;
+        }
+
+        //applico sconto mouse = tastiere, se necessario
+        if(numberOfMouse == numberOfKeyboards && numberOfMouse !=0){
+            if(priceMouseMIN > priceKeyboardMIN){
+                tot -= priceKeyboardMIN;
+            }else{
+                tot -= priceMouseMIN;
+            }
         }
 
         return tot;

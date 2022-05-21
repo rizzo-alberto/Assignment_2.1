@@ -63,7 +63,7 @@ public class BillTest {
     @Test
     public void orderPrice_CalculateTotalTest() throws  BillException{
         orderList.add(new EItem(EItem.itemEnum.Mouse, "Trust mePlease_black", 9.99));
-        orderList.add(new EItem(EItem.itemEnum.Keyboard, "Logitech MAXNOISE_CURSED_SWITCH_BLACK", 14.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Logitech MAXNOISE_CURSED_SWITCH_BLACK", 14.99));
         orderList.add(new EItem(EItem.itemEnum.Motherboard, "MSI_PAOLA", 159.99));
 
         assertEquals(184.97,bill.getOrderPrice(orderList,usr),1e-8);
@@ -116,5 +116,24 @@ public class BillTest {
         orderList.add(new EItem(EItem.itemEnum.Mouse, "LogiTech LisaLisa", 8.37));
 
         assertEquals(28.35,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_KeyboardEqualsMouseDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus Jotaro", 10.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Microsoft Giorno", 8.99));
+        orderList.add(new EItem(EItem.itemEnum.Keyboard, "Lenovo Master Mentadent", 10.37));
+        orderList.add(new EItem(EItem.itemEnum.Keyboard, "LogiTech Bass", 20.47));
+
+        assertEquals(41.83,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_KeyboardNOTEqualsMouseDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Asus Jotaro", 10.99));
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Microsoft Giorno", 8.99));
+        orderList.add(new EItem(EItem.itemEnum.Keyboard, "LogiTech Bass", 20.47));
+
+        assertEquals(40.45,bill.getOrderPrice(orderList,usr),1e-8);
     }
 }
