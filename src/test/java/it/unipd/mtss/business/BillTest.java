@@ -71,24 +71,24 @@ public class BillTest {
 
     @Test
     public void orderPrice_LessThanSixCPUDiscountTest() throws  BillException{
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 250.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 150.99));
         orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 350.99));
         orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 450.37));
 
 
-        assertEquals(1052.35,bill.getOrderPrice(orderList,usr),1e-8);
+        assertEquals(952.35,bill.getOrderPrice(orderList,usr),1e-8);
     }
 
     @Test
     public void orderPrice_MoreThanFiveCPUDiscountTest() throws  BillException{
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 250.99));
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 350.99));
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 450.37));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 50.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 150.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 150.37));
         orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i5 6900", 150.80));
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i7 7900", 330.99));
-        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i9 Lake dragon", 500.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i7 7900", 130.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i9 Lake dragon", 200.99));
 
-        assertEquals(1959.73,bill.getOrderPrice(orderList,usr),1e-8);
+        assertEquals(809.63,bill.getOrderPrice(orderList,usr),1e-2);
     }
 
     @Test
@@ -135,5 +135,18 @@ public class BillTest {
         orderList.add(new EItem(EItem.itemEnum.Keyboard, "LogiTech Bass", 20.47));
 
         assertEquals(40.45,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_DiscountTenPercentTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel core 15 i5", 1200.00));
+
+        assertEquals(1080,bill.getOrderPrice(orderList,usr),1e-8);
+    }
+
+    @Test
+    public void orderPrice_NotDiscountTenPercentTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel core 15 i3", 800));
+        assertEquals(800,bill.getOrderPrice(orderList,usr),1e-8);
     }
 }

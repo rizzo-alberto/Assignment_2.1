@@ -92,6 +92,11 @@ public class BillImplementation implements Bill {
             }
         }
 
+        //sconto 10% sul totale
+        if(tot>1000){
+            tot-=(tot/100) * 10;
+        }
+
         return tot;
     }
 }
