@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-e-shop-manager,it.unipd.mtss.business,BillImplementation,7,0,0,0,3,0,2,0,2,0
-e-shop-manager,it.unipd.mtss.model,EItem.itemEnum,27,0,0,0,1,0,1,0,1,0
-e-shop-manager,it.unipd.mtss.model,EItem,30,0,2,0,10,0,5,0,4,0
-e-shop-manager,it.unipd.mtss.model,User,37,0,8,0,10,0,5,0,1,0
-e-shop-manager,it.unipd.mtss.business.exception,BillException,4,0,0,0,2,0,1,0,1,0
