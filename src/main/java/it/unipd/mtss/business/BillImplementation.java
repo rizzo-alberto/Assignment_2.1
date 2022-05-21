@@ -14,6 +14,10 @@ import java.util.List;
 public class BillImplementation implements Bill {
     public double getOrderPrice(List<EItem> itemsOrdered, User user) throws BillException {
         double tot = 0.0;
+        int numberOfProcessor = 0;
+
+        double priceProcMIN = Double.MAX_VALUE;
+
 
         if(user == null) {
             throw new BillException("Il cliente deve essere definito");
@@ -31,8 +35,21 @@ public class BillImplementation implements Bill {
             throw new BillException("La lista degli ordini non può essere vuota");
         }
 
+        for (EItem itm : itemsOrdered){
+            if (itm.getItemType() == EItem.itemEnum.Processor){
+                numberOfProcessor++;
+                if(itm.getPrice()<priceProcMIN){
+                    priceProcMIN = itm.getPrice();
+                }
+            }
+        }
+
         for (EItem itm : itemsOrdered) {
             tot+=itm.getPrice();
+        }
+
+        if(numberOfProcessor > 5){
+            tot -= priceProcMIN/2;
         }
 
         return tot;

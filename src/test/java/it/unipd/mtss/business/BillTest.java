@@ -68,4 +68,16 @@ public class BillTest {
 
         assertEquals(184.97,bill.getOrderPrice(orderList,usr),1e-8);
     }
+
+    @Test
+    public void orderPrice_MorethanFiveCPUDiscountTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 5 3600X", 250.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 7 4600X", 350.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Ryzen 9 5900X", 450.37));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i5 6900", 150.80));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i7 7900", 330.99));
+        orderList.add(new EItem(EItem.itemEnum.Processor, "Intel i9 Lake dragon", 500.99));
+
+        assertEquals(1959.73,bill.getOrderPrice(orderList,usr),1e-8);
+    }
 }
