@@ -31,6 +31,9 @@ public class BillImplementation implements Bill {
             throw new BillException("La lista degli ordini non può essere vuota");
         }
 
+        for (EItem itm : itemsOrdered) {
+            tot+=itm.getPrice();
+        }
 
         return tot;
     }

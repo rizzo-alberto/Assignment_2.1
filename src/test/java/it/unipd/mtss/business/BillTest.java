@@ -59,4 +59,13 @@ public class BillTest {
             assertEquals("La lista degli ordini non può essere vuota",e.getMessage());
         }
     }
+
+    @Test
+    public void orderPrice_CalculateTotalTest() throws  BillException{
+        orderList.add(new EItem(EItem.itemEnum.Mouse, "Trust mePlease_black", 9.99));
+        orderList.add(new EItem(EItem.itemEnum.Keyboard, "Logitech MAXNOISE_CURSED_SWITCH_BLACK", 14.99));
+        orderList.add(new EItem(EItem.itemEnum.Motherboard, "MSI_PAOLA", 159.99));
+
+        assertEquals(184.97,bill.getOrderPrice(orderList,usr),1e-8);
+    }
 }
