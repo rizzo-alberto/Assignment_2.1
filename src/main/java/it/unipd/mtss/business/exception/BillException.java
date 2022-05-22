@@ -1,0 +1,12 @@
+////////////////////////////////////////////////////////////////////
+// Alberto Rizzo 2008079
+// Alberto Franzin 2011879
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.mtss.business.exception;
+
+public class BillException extends Exception{
+    public BillException(String msg){
+        super(msg);
+    }
+}
