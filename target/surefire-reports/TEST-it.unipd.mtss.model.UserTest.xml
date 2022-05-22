@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="it.unipd.mtss.model.UserTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="it.unipd.mtss.model.UserTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="18.0.1.1+2-6"/>
@@ -63,11 +63,11 @@
   </properties>
   <testcase classname="it.unipd.mtss.model.UserTest" name="getBirthTest" time="0"/>
   <testcase classname="it.unipd.mtss.model.UserTest" name="emptyNameTest" time="0"/>
-  <testcase classname="it.unipd.mtss.model.UserTest" name="getSurnameTest" time="0.001"/>
-  <testcase classname="it.unipd.mtss.model.UserTest" name="getNameTest" time="0.001"/>
-  <testcase classname="it.unipd.mtss.model.UserTest" name="emptyEmailTest" time="0.002"/>
-  <testcase classname="it.unipd.mtss.model.UserTest" name="nullBirthTest" time="0.002"/>
+  <testcase classname="it.unipd.mtss.model.UserTest" name="getSurnameTest" time="0"/>
+  <testcase classname="it.unipd.mtss.model.UserTest" name="getNameTest" time="0"/>
+  <testcase classname="it.unipd.mtss.model.UserTest" name="emptyEmailTest" time="0"/>
+  <testcase classname="it.unipd.mtss.model.UserTest" name="nullBirthTest" time="0.001"/>
   <testcase classname="it.unipd.mtss.model.UserTest" name="futureBithTest" time="0"/>
-  <testcase classname="it.unipd.mtss.model.UserTest" name="emptySurnameTest" time="0.002"/>
+  <testcase classname="it.unipd.mtss.model.UserTest" name="emptySurnameTest" time="0.001"/>
   <testcase classname="it.unipd.mtss.model.UserTest" name="getEmailTest" time="0"/>
 </testsuite>
