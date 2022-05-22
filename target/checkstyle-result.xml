@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\business\Bill.java">
-</file>
 <file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\business\BillImplementation.java">
 </file>
-<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\business\exception\BillException.java">
+<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\business\OrderGiveaway.java">
 </file>
-<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\model\EItem.java">
-</file>
-<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\model\User.java">
+<file name="C:\Users\rizzo\Desktop\ass2\Assignment_2.1\src\main\java\it\unipd\mtss\business\OrderGiveawayImplementaion.java">
 </file>
 </checkstyle>

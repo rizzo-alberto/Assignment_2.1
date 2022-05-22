@@ -6,7 +6,6 @@
 package it.unipd.mtss.business;
 
 import it.unipd.mtss.model.User;
-import jdk.vm.ci.meta.Local;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
